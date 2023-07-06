@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>Ciudades</mat-label>
+    <mat-select  multiple>
+
+      <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ciudad.ciudad}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  

@@ -1,0 +1,8 @@
+<div style="border: 2px solid red;">
+    <p>datos recibidos desde el componente hijo: {{ hijoData }}</p>
+    <p>Componente padre</p>
+<app-componentehijo  (dataToParent)="receiveDataFromChild($event)" [data]="padreData"></app-componentehijo>
+
+</div>
+
+

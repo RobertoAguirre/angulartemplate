@@ -1,0 +1,36 @@
+<p>home works!</p>
+<!-- <app-login></app-login> -->
+
+{{mensaje}}
+
+<ul>
+    <li *ngFor="let producto of arreglo" >
+        <!-- {{producto}} -->
+        <b>id:</b> {{producto.id}} {{producto.producto}} {{producto.cantidad}}
+    </li>
+</ul>
+<app-combociudades></app-combociudades>
+
+
+<h1 style="border: 2px solid red; width:10%"  (click)="irALista()" >Ir A Lista </h1>
+
+
+<h2>Lista pokemon</h2>
+<input type="text" [(ngModel)]="pokemon"/>
+<button (click)="traerUno()">Traer pokemon</button>
+<mat-card>
+    <mat-card-content *ngIf="infopokemon">
+        <h2>{{infopokemon.name}}</h2>
+        <p></p>
+        <ul>
+            <li *ngFor="let mytype of infopokemon.types">
+                {{mytype.type.name}}
+            </li>
+        </ul>
+
+        <img mat-card-image src="{{infopokemon.sprites.front_default}}" alt="">
+
+    </mat-card-content>
+</mat-card>
+
+<button (click)="downloadAndOpenPdf()">Download PDF</button>

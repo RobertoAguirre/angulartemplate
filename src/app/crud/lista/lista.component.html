@@ -1,0 +1,8 @@
+<p>Lista de productos</p>
+<ul>
+    <li *ngFor="let producto of productos" >
+        <!-- {{producto}} -->
+        <b>id:</b> {{producto.id}} {{producto.nombre_producto}} {{producto.cantidad}}
+        <button (click)="seleccionarProducto(producto)">Seleccionar</button>
+    </li>
+</ul>
