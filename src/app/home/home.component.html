@@ -15,12 +15,18 @@
 <h1 style="border: 2px solid red; width:10%"  (click)="irALista()" >Ir A Lista </h1>
 
 
-<h2>Lista pokemon</h2>
+Consumo api:
 <input type="text" [(ngModel)]="pokemon"/>
 <button (click)="traerUno()">Traer pokemon</button>
-<mat-card>
-    <mat-card-content *ngIf="infopokemon">
-        <h2>{{infopokemon.name}}</h2>
+
+<mat-card *ngIf="infopokemon">
+
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{infopokemon.name}}</mat-card-title>
+      </mat-card-header>
+    <mat-card-content >
+        
         <p></p>
         <ul>
             <li *ngFor="let mytype of infopokemon.types">
@@ -28,9 +34,18 @@
             </li>
         </ul>
 
-        <img mat-card-image src="{{infopokemon.sprites.front_default}}" alt="">
+        <img class="imagenPokemon" mat-card-image src="{{infopokemon.sprites.front_default}}" alt="">
 
     </mat-card-content>
 </mat-card>
+<hr>
+<p></p>
+<mat-card>
+    <mat-card-header>
+        Pdf
+    </mat-card-header>
+    <mat-card-content>
 
+    </mat-card-content>
+</mat-card>
 <button (click)="downloadAndOpenPdf()">Download PDF</button>
