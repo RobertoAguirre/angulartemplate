@@ -54,15 +54,32 @@ export class HomeComponent {
   }
 
   downloadAndOpenPdf() {
-    //const pdfUrl = 'https://example.com/path/to/your/pdf.pdf'; // Replace with your PDF URL
-    const pdfUrl = 'https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
-
+    const pdfUrl = 'https://cdn.filestackcontent.com/wcrjf9qPTCKXV3hMXDwK';
+  
     this.http.get(pdfUrl, { responseType: 'arraybuffer' }).subscribe((response: ArrayBuffer) => {
       const blob = new Blob([response], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
-      const sanitizedUrl: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(url);
-      window.open(sanitizedUrl.toString(), '_blank');
+  
+      // Download the file
+      /*
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.target = '_blank';
+      downloadLink.download = 'file.pdf'; // Set the desired file name
+      downloadLink.click();*/
+  
+      // Open the file in a new tab
+      const openLink = document.createElement('a');
+      openLink.href = url;
+      openLink.target = '_blank';
+      openLink.click();
+  
+      // Clean up
+      URL.revokeObjectURL(url);
     });
   }
+  
+  
+  
 
 }
